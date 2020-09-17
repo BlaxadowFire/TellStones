@@ -19,3 +19,5 @@ If you are from Riot Games and would like this repo taken down, please contact m
 I have purchased the physical copy of the game, and encourage you to do the same.
 
 I am not to be held responsible for the content of this program, nor any damage this may cause to your device.
+
+## DO NOT monitize this or any copy of this software.
