@@ -78,7 +78,7 @@ namespace Tellstones
             stones = new List<Stone>();
             instance.stones.Add(new Stone("sword"));
             instance.stones.Add(new Stone("shield"));
-            instance.stones.Add(new Stone("horse"));
+            instance.stones.Add(new Stone("knight"));
             instance.stones.Add(new Stone("crown"));
             instance.stones.Add(new Stone("hammer"));
             instance.stones.Add(new Stone("scales"));
