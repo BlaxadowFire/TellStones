@@ -39,7 +39,9 @@ namespace Tellstones
         }
         #endregion
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public void Initialize()
         {
             Player = 1;
@@ -49,10 +51,17 @@ namespace Tellstones
             _board = new Board();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void StartGame()
         {
             GameLoop();            
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
         private void GameLoop()
         {
             while (Points != MaxPoints - 1 && Points != 0 - (MaxPoints - 1))
@@ -85,6 +94,9 @@ namespace Tellstones
             instance.stones.Add(new Stone("flag"));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void SwitchPlayer()
         {
             if (Player == 1)

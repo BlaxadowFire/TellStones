@@ -6,6 +6,10 @@ namespace Tellstones
 {
     public class Stone
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
         public Stone(string name)
         {
             Id = Game.Instance.stones.Count;
@@ -18,6 +22,10 @@ namespace Tellstones
         public int BoardPosition {get; set;}
         public bool FaceUp { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static Stone PickFromPool()
         {
             DrawStones(GetStonesFromPool());
@@ -42,6 +50,10 @@ namespace Tellstones
         }
 
         //TODO
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="stones"></param>
         public static void DrawStones(IList<Stone> stones)
         {
             IList<Stone> orderedStones = stones.OrderBy(stone => stone.BoardPosition).ToList();
@@ -55,6 +67,10 @@ namespace Tellstones
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static IList<Stone> GetStonesFromPool()
         {
             List<Stone> stones = new List<Stone>();

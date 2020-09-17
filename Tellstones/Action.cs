@@ -32,18 +32,31 @@ namespace Tellstones
         }
         #endregion
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="stone"></param>
+        /// <param name="position"></param>
         public void Place(Stone stone, int position)
         {
             stone.BoardPosition = position;
         }
 
         //TODO
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="stone"></param>
         public void Hide(Stone stone)
         {
             stone.FaceUp = false;
         }
         
         //TODO
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="stones"></param>
         public void Swap(Stone[] stones)
         {
             // Code to swap 'x' and 'y' 
@@ -51,12 +64,22 @@ namespace Tellstones
             stones[1].BoardPosition = stones[0].BoardPosition - stones[1].BoardPosition; //y = x - y; // y becomes 10 
             stones[0].BoardPosition = stones[0].BoardPosition - stones[1].BoardPosition; //x = x - y; // x becomes 5 
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="stone"></param>
         public void Peek(Stone stone)
         {
             Console.WriteLine(stone.Name);
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="stone"></param>
         public void Challenge(Stone stone)
         {
             Console.WriteLine("Select the name of the selected stone.");
@@ -85,6 +108,9 @@ namespace Tellstones
         }
 
         //TODO
+        /// <summary>
+        /// 
+        /// </summary>
         public void Boast()
         {
             Game.Instance.stones.ForEach(stone => Console.WriteLine($"{stone.Id}: {stone.Name}"));
