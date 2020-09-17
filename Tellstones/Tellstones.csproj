@@ -3,6 +3,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>Nando Kools</Authors>
+    <Company>Nan-IT</Company>
   </PropertyGroup>
 
 </Project>
