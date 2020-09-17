@@ -4,8 +4,11 @@ This repo is based on the newly released game called "TellStones" released by Ri
 
 This game is normally played as a board game, but I wanted to transition it into a computer game as a learning experience.
 
-More info about the game as well as the manual can be found here:
+More info about the game can be found here:
 https://tellstones.com/en-us/
+
+The manual can be found here:
+https://assets.contentstack.io/v3/assets/blt0d5213e3ccf9f400/bltd5de22e9cd4788c5/5f624e7af0d2b04fae76b15e/tellstones-en.pdf
 
 Currently it still contains a lot of bugs, but I'm working on removing them.
 
