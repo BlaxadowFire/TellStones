@@ -44,11 +44,11 @@ namespace Tellstones
         /// <returns></returns>
         private static bool ExecuteAction(ConsoleKeyInfo cki)
         {
-            if (!int.TryParse(cki.KeyChar.ToString(), out var input))
+            if (!int.TryParse(cki.KeyChar.ToString(), out var input) || input < 1 || input > 6)
                 return false;
             Stone stone = null;
             List<Stone> stones = Game.Instance.stones.Where(stone => stone.BoardPosition != 0).ToList().OrderBy(stone => stone.BoardPosition).ToList();
-            Program.SetCursorPositionAndClearAfter(Console.CursorLeft, Console.CursorTop - 8);
+            CustomConsole.SetCursorPositionAndClearAfter(Console.CursorLeft, Console.CursorTop - 8);
             switch (input)
             {
                 case 1:
@@ -57,9 +57,9 @@ namespace Tellstones
                     int position;
                     do
                     {
-                        Program.SetCursorPositionAndClearAfter(Console.CursorLeft, Console.CursorTop - (Stone.GetStonesFromPool().Count + 1));
+                        CustomConsole.SetCursorPositionAndClearAfter(Console.CursorLeft, Console.CursorTop - (Stone.GetStonesFromPool().Count + 1));
                         position = GetPositionForPlaceAction();
-                        Program.SetCursorPositionAndClearAfter(Console.CursorLeft, Console.CursorTop - 4);
+                        CustomConsole.SetCursorPositionAndClearAfter(Console.CursorLeft, Console.CursorTop - 4);
                     }
                     while (position == -1);
                     Action.Instance.Place(stone, position);
@@ -77,7 +77,7 @@ namespace Tellstones
                     {
                         Stone.DrawStones(stones);
                         swapStones[i] = Stone.GetStoneFromList(stones);
-                        Program.SetCursorPositionAndClearAfter(Console.CursorLeft, Console.CursorTop - 4);
+                        CustomConsole.SetCursorPositionAndClearAfter(Console.CursorLeft, Console.CursorTop - 4);
                     }
                     Action.Instance.Swap(swapStones);
                     break;
