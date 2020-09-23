@@ -54,12 +54,13 @@ namespace Tellstones
         /// 
         /// </summary>
         /// <param name="stones"></param>
-        public static void DrawStones(IList<Stone> stones)
+        /// <param name="HideFaceDown"></param>
+        public static void DrawStones(IList<Stone> stones, bool HideFaceDown = true)
         {
             IList<Stone> orderedStones = stones.OrderBy(stone => stone.BoardPosition).ToList();
             foreach (Stone stone in orderedStones)
             {
-                if (stone.FaceUp)
+                if (stone.FaceUp|| HideFaceDown == false)
                     Console.WriteLine($"{orderedStones.IndexOf(stone) + 1}: {stone.Name}");
                 else
                     Console.WriteLine($"{orderedStones.IndexOf(stone) + 1}: ?");
