@@ -83,7 +83,7 @@ namespace Tellstones
         public void Challenge(Stone stone)
         {
             Console.WriteLine("Select the name of the selected stone.");
-            Stone.DrawStones(Game.Instance.stones);
+            Stone.DrawStones(Game.Instance.stones, false);
             var input = Console.ReadKey();
 
             //Gives or takes a point to the opposite player.
