@@ -44,11 +44,11 @@ namespace Tellstones
         /// <returns></returns>
         private static bool ExecuteAction(ConsoleKeyInfo cki)
         {
-            if (!int.TryParse(cki.KeyChar.ToString(), out var input))
+            if (!int.TryParse(cki.KeyChar.ToString(), out var input) || input < 1 || input > 6)
                 return false;
             Stone stone = null;
-            List<Stone> stones = Game.Instance.stones.Where(stone => stone.BoardPosition != 0).ToList().OrderBy(stone => stone.BoardPosition).ToList();
-            Program.SetCursorPositionAndClearAfter(Console.CursorLeft, Console.CursorTop - 8);
+            List<Stone> lineStonesOrderedByBoardPosition = Game.Instance.stones.Where(stone => stone.BoardPosition != 0).ToList().OrderBy(stone => stone.BoardPosition).ToList();
+            CustomConsole.SetCursorPositionAndClearAfter(Console.CursorLeft, Console.CursorTop - 8);
             switch (input)
             {
                 case 1:
@@ -57,17 +57,17 @@ namespace Tellstones
                     int position;
                     do
                     {
-                        Program.SetCursorPositionAndClearAfter(Console.CursorLeft, Console.CursorTop - (Stone.GetStonesFromPool().Count + 1));
+                        CustomConsole.SetCursorPositionAndClearAfter(Console.CursorLeft, Console.CursorTop - (Stone.GetStonesFromPool().Count + 1));
                         position = GetPositionForPlaceAction();
-                        Program.SetCursorPositionAndClearAfter(Console.CursorLeft, Console.CursorTop - 4);
+                        CustomConsole.SetCursorPositionAndClearAfter(Console.CursorLeft, Console.CursorTop - 4);
                     }
                     while (position == -1);
                     Action.Instance.Place(stone, position);
                     break;
                 case 2:
                     Console.WriteLine("Action: Hide");
-                    Stone.DrawStones(stones);
-                    stone = Stone.GetStoneFromList(stones);
+                    Stone.DrawStones(lineStonesOrderedByBoardPosition);
+                    stone = Stone.GetStoneFromList(lineStonesOrderedByBoardPosition);
                     Action.Instance.Hide(stone);
                     break;
                 case 3:
@@ -75,22 +75,22 @@ namespace Tellstones
                     Stone[] swapStones = new Stone[2];
                     for (int i = 0; i < swapStones.Length; i++)
                     {
-                        Stone.DrawStones(stones);
-                        swapStones[i] = Stone.GetStoneFromList(stones);
-                        Program.SetCursorPositionAndClearAfter(Console.CursorLeft, Console.CursorTop - 4);
+                        Stone.DrawStones(lineStonesOrderedByBoardPosition);
+                        swapStones[i] = Stone.GetStoneFromList(lineStonesOrderedByBoardPosition);
+                        CustomConsole.SetCursorPositionAndClearAfter(Console.CursorLeft, Console.CursorTop - 4);
                     }
                     Action.Instance.Swap(swapStones);
                     break;
                 case 4:
                     Console.WriteLine("Action: Peek");
-                    Stone.DrawStones(stones);
-                    stone = Stone.GetStoneFromList(stones);
+                    Stone.DrawStones(lineStonesOrderedByBoardPosition);
+                    stone = Stone.GetStoneFromList(lineStonesOrderedByBoardPosition);
                     Action.Instance.Peek(stone);
                     break;
                 case 5:
                     Console.WriteLine("Action: Challenge");
-                    Stone.DrawStones(stones);
-                    stone = Stone.GetStoneFromList(stones);
+                    Stone.DrawStones(lineStonesOrderedByBoardPosition);
+                    stone = Stone.GetStoneFromList(lineStonesOrderedByBoardPosition);
                     Action.Instance.Challenge(stone);
                     break;
                 case 6:

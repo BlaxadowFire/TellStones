@@ -111,11 +111,18 @@ namespace Tellstones
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void DrawCurrentPlayer()
         {
             Console.WriteLine($"Current player: {Game.Instance.Player}");
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="points"></param>
         private void DrawPlayerPoints(int[] points)
         {
             Console.WriteLine($"Player 1: {points[0]}");

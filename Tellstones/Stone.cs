@@ -6,6 +6,10 @@ namespace Tellstones
 {
     public class Stone
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
         public Stone(string name)
         {
             Id = Game.Instance.stones.Count;
@@ -18,6 +22,10 @@ namespace Tellstones
         public int BoardPosition {get; set;}
         public bool FaceUp { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static Stone PickFromPool()
         {
             DrawStones(GetStonesFromPool());
@@ -42,19 +50,27 @@ namespace Tellstones
         }
 
         //TODO
-        public static void DrawStones(IList<Stone> stones)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="stones"></param>
+        /// <param name="HideFaceDown"></param>
+        public static void DrawStones(IList<Stone> stones, bool HideFaceDown = true)
         {
-            IList<Stone> orderedStones = stones.OrderBy(stone => stone.BoardPosition).ToList();
-            foreach (Stone stone in orderedStones)
+            foreach (Stone stone in stones)
             {
-                if (stone.FaceUp)
-                    Console.WriteLine($"{orderedStones.IndexOf(stone) + 1}: {stone.Name}");
+                if (stone.FaceUp|| HideFaceDown == false)
+                    Console.WriteLine($"{stones.IndexOf(stone) + 1}: {stone.Name}");
                 else
-                    Console.WriteLine($"{orderedStones.IndexOf(stone) + 1}: ?");
+                    Console.WriteLine($"{stones.IndexOf(stone) + 1}: ?");
 
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static IList<Stone> GetStonesFromPool()
         {
             List<Stone> stones = new List<Stone>();
