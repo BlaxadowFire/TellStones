@@ -87,7 +87,7 @@ namespace Tellstones
             var input = Console.ReadKey();
 
             //Gives or takes a point to the opposite player.
-            if (stone.Name == Game.Instance.stones.First(stone => stone.Id == int.Parse(input.KeyChar.ToString())).Name)
+            if (stone.Name == Game.Instance.stones.First(stone => stone.Id == int.Parse(input.KeyChar.ToString())-1).Name)
             {
                 Console.WriteLine("Correct");
                 if (Game.Instance.Player == 1)
